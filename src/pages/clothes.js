@@ -2,33 +2,86 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import { Link } from "react-router-dom";
+import { Carousel } from "react-bootstrap";
 function Clothes() {
-    const [clothesdata,setCothesdata]=useState([]);
+  const [clothesdata, setClothesdata] = useState([]);
+  const [searchtext, setSearchtext] = useState("");
 
-    useEffect(()=>{
-        axios
-        .get("http://localhost:3000/api/data?sub=clothes")
-        .then((response)=>{
-            setCothesdata(response.data);
-        })
-    },[])
-    if(!clothesdata){
-        return <h1>Loading....</h1>
-    }
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/data?sub=clothes&g=${searchtext}`)
+      .then((response) => {
+        setClothesdata(response.data);
+      });
+  }, [searchtext]);
 
-    return(
+  function changedvalue(e) {
+    setSearchtext(e.target.value);
+  }
+
+  if (!clothesdata) {
+    return <h1>Loading....</h1>;
+  }
+
+  return (
+    <>
+      <Carousel
+        interval={1500}
+        pause="hover"
+        wrap={true}
+        onSlide={(slideIndex) => console.log(`Active Slide: ${slideIndex}`)}
+      >
+        {clothesdata.map((items) => (
+          <Carousel.Item key={items.product_id}>
+            <Link to={`/Details/${items.product_id}`}>
+              <img
+                className="d-block w-100"
+                src={items.product_images}
+                alt={items.product_name}  height="500px" width="500px"
+              />
+            </Link>
+            <Carousel.Caption className="d-none d-md-block">
+              <h3 style={{color:"red"}}>{items.product_name}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      
+        <div>
+          <h2>Filter</h2>
+          <select
+            name="Gender"
+            id="Gender"
+            value={searchtext}
+            onChange={changedvalue}
+          >
+            <option value=""> All</option>
+            <option value="man"> Male</option>
+            <option value="woman"> Female</option>
+          </select>
+          <div className="genderbox">
+           <div className="women" ><img src={require('../images/womenpic.jpg')} alt="Women"/>
+            <h1>SHOPE NOW</h1></div>
+            <img src={require('../images/menpic.jpg')} alt="Men"/>
+            <img src={require('../images/kidspic.jpg')} alt="Kids"/>
+
+
+          </div>
+        </div>
         <div className="App2">
-        {clothesdata.map((clothes)=>(
-            <div className="card" key={clothes.product_id}>
-                <img src={clothes.product_images} alt={clothes.product_name} height="300px" width="400px"/>
-                <h3 style={{textAlign:"left"}}>{clothes.product_name}</h3>
-                <h3 style={{textAlign:"left"}}>₹{clothes.price}</h3>
-                <div className="btn"><Link to={`/Details/${clothes.product_id}`}><button type="submit">More details</button></Link></div>
+        {clothesdata.map((Mobiles)=>(
+            <div className="card" key={Mobiles.product_id}>
+             <div className="image">  <Link to={`/Details/${Mobiles.product_id}`}> <img src={Mobiles.product_images} alt={Mobiles.product_name} />  </Link></div>
+                <h3 style={{textAlign:"left"}}>{Mobiles.product_name}</h3><br/>
+                <h3 style={{textAlign:"left"}}>${Mobiles.price}</h3>
+              
             </div>
         ))}
 
         </div>
-    );
-    
+    </>
+  );
 }
+
 export default Clothes;

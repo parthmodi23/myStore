@@ -8,7 +8,9 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Details from './pages/Details';
 import Clothes from './pages/clothes';
-
+import Books from './pages/Books';
+import Login from './pages/login'
+import Footer from './pages/footer';
 function App() {
   return (
     <div className="App">
@@ -23,9 +25,15 @@ function App() {
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/mobiles" element={<Mobile />} />
           <Route path="/clothes" element={<Clothes />} />
+          <Route path="/Books" element={<Books />} />
+          <Route path='/login' element={<Login/>}/>
           <Route path="/*" element={<h1>error</h1>} />
 
-        </Routes></Router>
+        </Routes>
+        <hr></hr>
+        <Footer/>
+
+</Router>
     </div>
   );
 }

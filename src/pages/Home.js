@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import '../App.css';
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
+
 function Home() {
     const [shoesdata,setShoesdata]=useState([]);
 
@@ -31,12 +32,12 @@ function Home() {
               <img
                 className="d-block w-100"
                 src={items.product_images}
-                alt={items.product_name}  height="500px" width="500px"
+                alt={items.product_name}  height="450px" width="500px"
               />
             </Link>
-            <Carousel.Caption className="d-none d-md-block">
+            {/* <Carousel.Caption className="d-none d-md-block">
               <h3 style={{color:"red"}}>{items.product_name}</h3>
-            </Carousel.Caption>
+            </Carousel.Caption> */}
           </Carousel.Item>
         ))}
       </Carousel>
@@ -44,14 +45,16 @@ function Home() {
         <div className="App2">
         {shoesdata.map((shoes)=>(
             <div className="card" key={shoes.product_id}>
-                <img src={shoes.product_images} alt={shoes.product_name} height="300px" width="400px"/>
-                <h3 style={{textAlign:"left"}}>{shoes.product_name}</h3>
-                <h3 style={{textAlign:"left"}}>₹{shoes.price}</h3>
-                <div className="btn"><Link to={`Details/${shoes.product_id}`}><button type="submit">More details</button></Link></div>
+             <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
+                <h3 style={{textAlign:"left"}}>{shoes.product_name}<br/>
+                ${shoes.price}</h3>
+              
             </div>
         ))}
 
-        </div></>
+        </div>
+        
+        </>
     );
     
 }

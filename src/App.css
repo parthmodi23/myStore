@@ -1,7 +1,16 @@
-.App {
-  text-align: center;
+body {
+
 }
 
+.App {
+    
+
+
+  text-align: center;
+}
+*{
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,21 +45,60 @@
     transform: rotate(360deg);
   }
 }
-.App2{
-  display: Flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  text-align: center;
-}
-.card{
-  border: 2px solid black;
-  justify-content: space-between;
+
+.App2 {
+  width:100%;
+  height: 70%;
   display: flex;
-  flex-direction:column;
-  margin: 4.5%;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items horizontally */
+  /*align-items: flex-start; /* Align items to the top of the container */
+  text-align: center;
+  gap: 50px;
+  word-wrap: break-word;
+}
+.card {
+  position: relative;
+  /* background-color: rgb(221, 203, 203); */
+  width: 340px;
+  height: 500px;
+  box-shadow: 0 5px 20px rgba(0, 0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 20px 40px;
+  border-radius: 10px;
+  transition: .3s;
+  overflow: hidden;
+  /* width: calc(33.33% - 20px); /* 3 images per row (subtracted some space for gaps) */
+  /* margin: 10px; /* Add some margin between cards */
+  /* height: 300px; Set a fixed height for the cards */
+  /* overflow: hidden; Hide any content overflow */
+  /* border: 1px solid #ddd; Add a border for a visual separation */ 
+  /* margin-bottom: 10px; */ 
+}
+.card:hover{
+  transform: translate(-5px);
+  box-shadow:0 5px 10px rgba(0, 0,0,0.2);
+}
+.image{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-items:center ;
 
 }
-.header{
+.image img {
+  width:100%;
+  height: 350px;
+  overflow: hidden; /* Ensure the image scales to fit the container width */
+   /* Scale the images to fit within the container while maintaining aspect ratio */
+}
+
+
+
+.header {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
@@ -58,37 +106,129 @@
   flex-direction: row;
   align-items: center;
 }
-.nav_links{
-  list-style: none;
-  text-decoration: none;
-  
+.genderbox{
+  display: flex;
+  padding: 20px;
+  height: 250px;
+  width: 100%;
+  justify-content: space-around;
 
 }
-.mainsearch{
+.genderbox img{
+  border: 2px solid black;
+  display: flex;
+  transition: .5s;
+  
+}
+h1{
+  height: 100px;
+
+  /* opacity: 1;
+  visibility: hidden; */
+}
+
+.genderbox img:hover{
+  background-color: rgba(14, 14, 91, 0.6);
+  transform: translate(-5px);
+}
+.nav_links {
+  list-style: none;
+  text-decoration: none;
+  font-size: 18px;
+  
+}
+.woman{
+  display: block;
+}
+
+.mainsearch {
   width: 700px;
+}
+.detailmain{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 5rem;
+  gap: 30px;
+
+}
+.dproductdetails{
+  justify-content: space-evenly;
+}
+.dproductimage img{
+  height: 500px;
+  width: 500px;
+  padding: 20px;
+}
+.dproductimage img:hover{
+  scale: 1.1;
+}
+.sizecolor{
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+.sizecolor select{
+  height: 50px;
+  width: 300px;
+}
+.sizecolor span{
+  padding-right: 40px;
+}
+.size{
+  margin-bottom: 20px;
+}
+.cart button{
+  width: 50px;
+  height: 50px;
+}
+.cart span{
+  font-size: 38px;
+ text-align: center;
+ margin: 20px 20px 20px 20px;
+}
+.cartbutton{
+  border: 1px solid black;
+  box-shadow: 0.5px blue;
+}
+.cartbuy{
+  margin-top: 20px ;
+  display: flex;
+  flex-direction: column;
+}
+.buy button{
+  height: 50px;
+  width: 350px;
+  background-color: green;
+  font-size: 30px;
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0.5px blue;
+}
+.buy{
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .nav_links li {
   display: inline-block;
-  padding:0 20px ;
+  padding: 0 20px;
 }
-.detailcard{
-  display: flex;
-  flex-wrap: wrap;
-  border: 2px solid black; 
-  justify-content:first baseline;
-}
+
+
+
 .carousel {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   overflow: hidden; /* Hide any overflow */
-  
 }
 
 .carousel-inner,
 .carousel-item {
-   /* Use flexbox to center the images vertically */
+  /* Use flexbox to center the images vertically */
   align-items: center; /* Vertically center the images */
   justify-content: center; /* Horizontally center the images */
   max-height: 700px; /* Set the maximum height for the carousel items */
@@ -99,3 +239,76 @@
   max-height: 100%; /* Set the maximum height of the image to the height of the carousel item */
   max-width: 100%; /* Set the maximum width of the image to the width of the carousel item */
 }
+/* CSS */
+
+.footer {
+  background-color: #f8f8f8;
+  padding: 40px 0;
+}
+
+.footer h4 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.footer p {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.social-icons li {
+  margin-right: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.footer-payment {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.footer-payment li {
+  margin-right: 10px;
+}
+
+.footer-hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.footer-copyright {
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Customize the styles further based on your website's design and branding */

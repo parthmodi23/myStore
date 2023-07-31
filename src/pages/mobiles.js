@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import { Link } from "react-router-dom";
+import { Carousel } from "react-bootstrap";
 function Mobile() {
     const [mobiledata,setMobiledata]=useState([]);
 
@@ -17,17 +18,39 @@ function Mobile() {
     }
 
     return(
-        <div className="App2">
-        {mobiledata.map((mobile)=>(
-            <div className="card" key={mobile.product_id}>
-                <img src={mobile.product_images} alt={mobile.product_name} height="300px" width="400px"/>
-                <h3 style={{textAlign:"left"}}>{mobile.product_name}</h3>
-                <h3 style={{textAlign:"left"}}>₹{mobile.price}</h3>
-                <div className="btn"><Link to={`/Details/${mobile.product_id}`}><button type="submit">More details</button></Link></div>
+        <>
+        <Carousel
+        interval={1500}
+        pause="hover"
+        wrap={true}
+        onSlide={(slideIndex) => console.log(`Active Slide: ${slideIndex}`)}
+      >
+        {mobiledata.map((items) => (
+          <Carousel.Item key={items.product_id}>
+            <Link to={`/Details/${items.product_id}`}>
+              <img
+                className="d-block w-100"
+                src={items.product_images}
+                alt={items.product_name}  height="500px" width="500px"
+              />
+            </Link>
+            <Carousel.Caption className="d-none d-md-block">
+              <h3 style={{color:"red"}}>{items.product_name}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+      <div className="App2">
+        {mobiledata.map((shoes)=>(
+            <div className="card" key={shoes.product_id}>
+             <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
+                <h3 style={{textAlign:"left"}}>{shoes.product_name}</h3><br/>
+                <h3 style={{textAlign:"left"}}>${shoes.price}</h3>
+              
             </div>
         ))}
 
-        </div>
+        </div></>
     );
     
 }
