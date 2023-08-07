@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import '../App.css';
+import { Link } from "react-router-dom";
 function Details() {
 
     const { productid } = useParams();
@@ -9,7 +10,7 @@ function Details() {
     const [additem, setAdditem] = useState(0);
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/api/data?id=${productid}`)
+            .get(`http://localhost:3001/api/data?id=${productid}`)
             .then((response) => {
                 setDetails(response.data);
             })
@@ -49,10 +50,10 @@ function Details() {
             <div className="cartbuy">
                <div className="cart"> <button type="submit" onClick={less}>-</button>
                 <span>{additem}</span>
-                <button type="submit" onClick={add}>+</button><br /></div>
+                <button type="submit" onClick={add}>+</button></div>
                <div className="buy"> 
               <div className="cartbutton"> <button  type="submit">Add to cart🛒</button></div>
-              <div className="buybutton">  <button  type="submit" >Buy Now</button></div>
+              <div className="buybutton">  <Link to="/signup"><button  type="submit" >Buy Now</button></Link></div>
                 </div>
             </div>
         </div></div>

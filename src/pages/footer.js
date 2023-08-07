@@ -4,7 +4,7 @@ import '../App.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="App2">
         <div className="row">
           <div className="col-lg-4 col-md-6">
             <h4>About Us</h4>
@@ -12,10 +12,10 @@ const Footer = () => {
           </div>
           <div className="col-lg-4 col-md-6">
             <h4>Contact Us</h4>
-            <p>Email: info@example.com</p>
-            <p>Phone: +1 (123) 456-7890</p>
+            <p>Email: info@myStore.com</p>
+            <p>Phone: +91 9898989898</p>
           </div>
-          <div className="col-lg-4">
+          <div className="col-lg-3">
             <h4>Follow Us</h4>
             <ul className="social-icons">
               <li><a href="#" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a></li>

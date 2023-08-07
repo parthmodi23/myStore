@@ -8,7 +8,7 @@ function Mobile() {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:3000/api/data?s=mobile")
+        .get("http://localhost:3001/api/data?s=mobile")
         .then((response)=>{
             setMobiledata(response.data);
         })
@@ -34,9 +34,9 @@ function Mobile() {
                 alt={items.product_name}  height="500px" width="500px"
               />
             </Link>
-            <Carousel.Caption className="d-none d-md-block">
+            {/* <Carousel.Caption className="d-none d-md-block">
               <h3 style={{color:"red"}}>{items.product_name}</h3>
-            </Carousel.Caption>
+            </Carousel.Caption> */}
           </Carousel.Item>
         ))}
       </Carousel>

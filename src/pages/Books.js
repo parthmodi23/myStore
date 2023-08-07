@@ -11,7 +11,7 @@ function Books() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/api/data?s=books`)
+            .get(`http://localhost:3001/api/data?s=books`)
             .then((response) => {
                 setBookdata(response.data);
             })
@@ -53,8 +53,8 @@ function Books() {
                     <h2>Filter</h2>
                     <select name="Gender" id="Gender" value={searchtext} onChange={changedvalue}>
                         <option value=""> All</option>
-                        <option value="man"> Male</option>
-                        <option value="woman"> Female</option>
+                        <option value="man"> Horror</option>
+                        <option value="woman">thriller      </option>
 
                     </select>
 
@@ -63,10 +63,9 @@ function Books() {
                 </div>
                 {bookdata.map((books) => (
                     <div className="card" key={books.product_id}>
-                        <img src={books.product_images} alt={books.product_name}  />
+                      <Link to={`/Details/${books.product_id}`}> <div className="image">  <img src={books.product_images} alt={books.product_name}  /></div></Link>
                         <h3 style={{ textAlign: "left" }}>{books.product_name}</h3>
                         <h3 style={{ textAlign: "left" }}>₹{books.price}</h3>
-                        <div className="btn"><Link to={`/Details/${books.product_id}`}><button type="submit">More details</button></Link></div>
                     </div>
                 ))}
 

@@ -8,7 +8,7 @@ function Shoes() {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:3000/api/data?s=shoes")
+        .get("http://localhost:3001/api/data?s=shoes")
         .then((response)=>{
             setShoesdata(response.data);
         })
