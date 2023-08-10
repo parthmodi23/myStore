@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 
+import './signup.css'; // Make sure to adjust the path
+
 function Signup() {
   const navigate = useNavigate();
   const [user, setUser] = useState({ username: '', password: '' });
@@ -25,42 +27,45 @@ function Signup() {
       alert('Account created successfully!');
       navigate('/Home');
     } catch (error) {
+      alert("" + error.response.data.msg);
       console.error('Error registering:', error.response.data.msg);
     }
   };
 
   return (
-    <form>
-      <h3>Sign Up</h3>
-      <div>
-        <label>UserName:</label>
-        <input
-          type="text"
-          name="username"
-          value={user.username}
-          placeholder="Username"
-          onChange={handleOnChange}
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          placeholder="Enter password"
-          onChange={handleOnChange}
-        />
-      </div>
-      <div>
-        <button type="submit" onClick={handleSubmit}>
-          Sign Up
-        </button>
-      </div>
-      <p>
-        Already registered? <Link to="/signin">Sign In</Link>
-      </p>
-    </form>
+    <div className="form-container">
+      <form>
+        <h3>Sign Up</h3>
+        <div>
+          {/* <label>UserName:</label> */}
+          <input
+            type="text"
+            name="username"
+            value={user.username}
+            placeholder="Username"
+            onChange={handleOnChange}
+          />
+        </div>
+        <div>
+          {/* <label>Password:</label> */}
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            placeholder="Enter password"
+            onChange={handleOnChange}
+          />
+        </div>
+        <div>
+          <button type="submit" onClick={handleSubmit}>
+            Sign Up
+          </button>
+        </div>
+        <p>
+          Already registered? <Link to="/signin">Sign In</Link>
+        </p>
+      </form>
+    </div>
   );
 }
 
