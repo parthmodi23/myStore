@@ -11,19 +11,21 @@ function Signup() {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
- 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await 
-      axios.post('http://localhost:5000/register', user);
-      console.log('Successfully registered!');
-      setUser({ username: '', password: '' });
-      alert("account created successfully!")
+      const response = await axios.post('http://localhost:5000/register', user);
+      console.log('Successfully registered!', response.data);
+
+      // Save userObj and auth token to localStorage
+      localStorage.setItem('user', JSON.stringify(response.data.userObj));
+      localStorage.setItem('token', response.data.auth);
+
+      alert('Account created successfully!');
       navigate('/Home');
     } catch (error) {
-      console.error('Error registering:', error);
+      console.error('Error registering:', error.response.data.msg);
     }
   };
 
@@ -31,7 +33,7 @@ function Signup() {
     <form>
       <h3>Sign Up</h3>
       <div>
-        <label>UserName:-</label>
+        <label>UserName:</label>
         <input
           type="text"
           name="username"
@@ -41,7 +43,7 @@ function Signup() {
         />
       </div>
       <div>
-        <label>Password:-</label>
+        <label>Password:</label>
         <input
           type="password"
           name="password"

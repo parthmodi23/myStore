@@ -24,7 +24,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
-
           <Route path="/Search/:searchtext" element={<Search />} />
           <Route path="/Details/:productid" element={<Details/>}/>
           <Route path="/shoes" element={<Shoes />} />
@@ -33,12 +32,9 @@ function App() {
           <Route path="/Books" element={<Books />} />
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/signin' element={<SignIn/>}/>
-
-
           <Route path="/*" element={<h1>error</h1>} />
-
         </Routes>
-        <hr></hr>
+        
         <Footer/>
 
 </Router>

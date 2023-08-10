@@ -8,6 +8,7 @@ function Details() {
     const { productid } = useParams();
     const [details, setDetails] = useState([]);
     const [additem, setAdditem] = useState(0);
+ 
     useEffect(() => {
         axios
             .get(`http://localhost:3001/api/data?id=${productid}`)
@@ -53,7 +54,8 @@ function Details() {
                 <button type="submit" onClick={add}>+</button></div>
                <div className="buy"> 
               <div className="cartbutton"> <button  type="submit">Add to cart🛒</button></div>
-              <div className="buybutton">  <Link to="/signup"><button  type="submit" >Buy Now</button></Link></div>
+              <div className="buybutton">  
+              <Link to="/signup"><button  type="submit" >Buy Now</button></Link></div>
                 </div>
             </div>
         </div></div>

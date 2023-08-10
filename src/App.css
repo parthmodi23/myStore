@@ -385,5 +385,8 @@ h1{
   color: #777;
   margin-top: 20px;
 }
-
+.logincomponent button{
+  margin: 10px;
+  justify-content: space-evenly;
+}
 /* Customize the styles further based on your website's design and branding */

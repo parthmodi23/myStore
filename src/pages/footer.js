@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-4 col-md-6">
             <h4>About Us</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod faucibus gravida.</p>
+            <p>Welcome to myStore, your go-to online shopping destination for your day to day life</p>
           </div>
           <div className="col-lg-4 col-md-6">
             <h4>Contact Us</h4>
@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <hr className="footer-hr" />
         <p className="text-center footer-copyright">
-          &copy; {new Date().getFullYear()} Your E-commerce Website. All rights reserved.
+          &copy; {new Date().getFullYear()} All rights reserved.
         </p>
       </div>
     </footer>

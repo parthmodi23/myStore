@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 function Search() {
     const { searchtext } = useParams();
-    const [searchdata,setSearchdata]=useState([]);
+    const [searchdata,  setSearchdata]=useState([]);
 
     useEffect(()=>{
         axios

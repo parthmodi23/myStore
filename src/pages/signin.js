@@ -1,4 +1,3 @@
-// SignIn.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -19,10 +18,16 @@ function SignIn() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/login', credentials);
-      // Handle successful sign-in (e.g., store the token, redirect, etc.)
-      console.log('Successful sign-in:', response.data);
-      alert("welcome User")
-      navigate('/Home')
+
+      if (response && response.data) {
+        // Successful sign-in
+        const { userObj, auth } = response.data;
+        localStorage.setItem('user', JSON.stringify(userObj));
+        localStorage.setItem('token', auth);
+        navigate('/Home');
+      } else {
+        console.error('Invalid response from server');
+      }
 
     } catch (error) {
       console.error('Error signing in:', error.response.data.msg);
