@@ -21,14 +21,14 @@ export default function Nav2() {
   <li className="nav_links" >
     <div>
     
-   <div className="imges"><Link to="/" ><FaHome /></Link></div> 
+   <div className="imges"><Link to="/" ><FaHome size={30}/></Link></div> 
     <Link to="/"><span>Home</span></Link>
     </div>
   </li >
   <li className="nav_links">
     <div>
-    <div className="imges"><Link to="/shoes"><GiChelseaBoot /></Link></div>
-    <Link to="/shoes"><span>shoes</span></Link></div>
+    <div className="imges"><Link to="/shoes"><GiChelseaBoot size={30}/></Link></div>
+    <Link to="/shoes"><span>Shoes</span></Link></div>
 
 
 
@@ -36,7 +36,7 @@ export default function Nav2() {
   <li className="nav_links" >
     <div>
         
-    <div className="imges"><Link to="/mobiles"><MdSmartphone /></Link></div>
+    <div className="imges"><Link to="/mobiles"><MdSmartphone  size={30}/></Link></div>
     <Link to="/mobiles"><span>Mobiles</span></Link>
 
     </div>
@@ -44,15 +44,15 @@ export default function Nav2() {
   </li>
   <li className="nav_links" >
    <div>
-   <div className="imges"><Link to="/clothes"><FaTshirt /></Link></div>
-    <Link to="/clothes"><span>clothes</span></Link>
+   <div className="imges"><Link to="/clothes"><FaTshirt size={30} /></Link></div>
+    <Link to="/clothes"><span>Clothes</span></Link>
    </div>
 
 
   </li>
   <li className="nav_links" >
     <div>
-    <div className="imges"><Link to="/Books"><FaBook /></Link></div>
+    <div className="imges"><Link to="/Books"><FaBook size={30}/></Link></div>
     <Link to="/Books"><span>Books</span></Link>
 
     </div>

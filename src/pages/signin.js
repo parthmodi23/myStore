@@ -19,7 +19,7 @@ function SignIn() {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/login', credentials);
+      const response = await axios.post('https://lime-outrageous-codfish.cyclic.app/login', credentials);
 
       if (response && response.data) {
         // Successful sign-in
@@ -32,13 +32,14 @@ function SignIn() {
       }
 
     } catch (error) {
+      alert(""+error.response.data.msg)
       console.error('Error signing in:', error.response.data.msg);
     }
   };
 
   return (
     <div className="form-container">
-      <form>
+      <form onSubmit={handleSignIn}>
         <h3>Sign In</h3>
         <div className="input-group">
           {/* <label htmlFor="username">Username</label> */}
@@ -48,7 +49,8 @@ function SignIn() {
             name="username"
             value={credentials.username}
             onChange={handleOnChange}
-            placeholder="Enter your username"
+            placeholder="Enter your username" 
+            required
           />
         </div>
         <div className="input-group">
@@ -59,14 +61,15 @@ function SignIn() {
             name="password"
             value={credentials.password}
             onChange={handleOnChange}
-            placeholder="Enter your password"
+            placeholder="Enter your password"  
+            required
           />
         </div>
         <div className="input-group">
-          <button type="submit" onClick={handleSignIn}>Sign In</button>
+          <button type="submit" >Sign In</button>
         </div>
         <p className="signup-link">
-          New user? <Link to="/signup">Sign Up</Link>
+          New User?<br/><Link to="/signup">Create New Account</Link>
         </p>
       </form>
     </div>

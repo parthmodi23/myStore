@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import '../App.css';
 import { Link,useNavigate} from "react-router-dom";
 import logo from "../logo.png";
-
 function Nav() {  
 
   const [searchtext, setSearchinput] = useState("");
-  const isAuthenticated = !!localStorage.getItem('token');
+  const userAuthenticated = !!localStorage.getItem('token');
   const navigate = useNavigate();
+
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -34,17 +34,16 @@ function Nav() {
         </div>
       </form>
      <div className="logincomponent">
-       {isAuthenticated ? (
-        // Show Logout button when user is authenticated
+       {userAuthenticated ? (
+        // logoutbutton when user user already signin or signup
         <button type="submit" onClick={handleLogout}>Logout</button>
       ) : (
-        // Show Register and Sign In buttons when user is not authenticated
         <>
-          <Link to="/signup"><button type="submit">Register</button></Link>
+          {/* <Link to="/signup"><button type="submit">Register</button></Link> */}
           <Link to="/signin"><button type="submit">Sign In</button></Link>
         </>
       )}
-      <Link to="/signin"><button type="submit">Cart🛒</button></Link></div>
+      <Link to="/cartpage"><button type="submit">Cart🛒</button></Link></div>
     </div>
   );
 }

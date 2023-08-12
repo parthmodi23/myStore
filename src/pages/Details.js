@@ -1,28 +1,63 @@
+// Details.js
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import '../App.css';
-import { Link } from "react-router-dom";
-function Details() {
+import { useParams } from "react-router-dom";
 
-    const { productid } = useParams();
-    const [details, setDetails] = useState([]);
-    const [additem, setAdditem] = useState(0);
- 
-    useEffect(() => {
-        axios
-            .get(`http://localhost:3001/api/data?id=${productid}`)
-            .then((response) => {
-                setDetails(response.data);
-            })
-    }, [productid]);
-    if (!details) {
-        return <h1>Loading...</h1>
+function Details() {
+  const { productid } = useParams();
+  const [details, setDetails] = useState([]);
+  const [selectedSize, setSelectedSize] = useState("");
+  const [additem, setAdditem] = useState(0);
+  // const userAuthenticated = !!localStorage.getItem('token');
+  useEffect(() => {
+    axios
+      .get(`https://lime-outrageous-codfish.cyclic.app/api/data?id=${productid}`)
+      .then((response) => {
+        setDetails(response.data);
+      });
+  }, [productid]);
+  const handlebuy=()=>{
+    alert("Your Product will be Succesfully delivered!")
+  }
+
+  const addToCart = () => {
+    // if (!selectedSize) {
+    //   alert("Please select a size before adding to the cart.");
+    //   return;
+    // }
+
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const existingCartItem = cartItems.find(
+      (item) =>
+        item.product_id === details.product_id 
+        // item.selectedSize === selectedSize
+    );
+    if (existingCartItem) {
+      alert("This product with the selected size is already in the cart.");
+      return;
     }
-    const add = () => { setAdditem(additem + 1) }
-    const less = () => { setAdditem(additem - 1) }
-    return (
-        <div className="detailmain">
+   
+
+    const cartItem = {
+      ...details,
+      selectedSize: selectedSize,
+    };
+
+    cartItems.push(cartItem);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    alert("Product added successfully to the cart");
+  };
+
+  if (!details.product_name) {
+    return <h1>Loading...</h1>;
+  }
+  const add = () => { setAdditem(additem + 1) }
+  const less = () => { setAdditem(additem - 1) }
+
+  return (
+    <div className="detailmain">
             <div className="dproductimage">
                 <img src={details.product_images} alt={details.product_name} height="300px" width="400px" />
             </div>
@@ -53,13 +88,16 @@ function Details() {
                 <span>{additem}</span>
                 <button type="submit" onClick={add}>+</button></div>
                <div className="buy"> 
-              <div className="cartbutton"> <button  type="submit">Add to cart🛒</button></div>
-              <div className="buybutton">  
-              <Link to="/signup"><button  type="submit" >Buy Now</button></Link></div>
-                </div>
-            </div>
-        </div></div>
+              <div className="cartbutton"> <button  type="submit" onClick={addToCart}>Add to cart🛒</button></div>
+              <div className="buybutton"><button  type="submit" onClick={handlebuy}>Buy Now</button></div>
 
-    );
-}
+              {/* { ?(('/signin')):(<>
+              <div className="buybutton">  
+              <button  type="submit" >Buy Now</button></div>
+                
+                 </>)} */}
+            </div></div>
+        </div></div>
+  );}
+
 export default Details;

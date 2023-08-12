@@ -8,7 +8,7 @@ function Mobile() {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:3001/api/data?s=mobile")
+        .get("https://lime-outrageous-codfish.cyclic.app/api/data?s=mobile")
         .then((response)=>{
             setMobiledata(response.data);
         })
@@ -44,8 +44,10 @@ function Mobile() {
         {mobiledata.map((shoes)=>(
             <div className="card" key={shoes.product_id}>
              <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
-                <h3 style={{textAlign:"left"}}>{shoes.product_name}</h3><br/>
+                <h3 style={{textAlign:"left"}}>{shoes.product_name}</h3>
                 <h3 style={{textAlign:"left"}}>${shoes.price}</h3>
+                <Link to={`/Details/${shoes.product_id}`}><button type="submit">details</button></Link>
+
               
             </div>
         ))}

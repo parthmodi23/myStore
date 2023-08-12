@@ -9,7 +9,7 @@ function Home() {
 
     useEffect(()=>{
         axios
-        .get("http://localhost:3001/api/data")
+        .get("https://lime-outrageous-codfish.cyclic.app/api/data")
         .then((response)=>{
             setShoesdata(response.data);
         })
@@ -32,6 +32,7 @@ function Home() {
       "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.jpg"
     },
     ];
+    
   
     if(!shoesdata){
         return <h1>Loading....</h1>
@@ -61,6 +62,7 @@ function Home() {
              <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
                 <h3 style={{textAlign:"left"}}>{shoes.product_name}<br/>
                 ${shoes.price}</h3>
+                <Link to={`/Details/${shoes.product_id}`}><button type="submit">details</button></Link>
               
             </div>
         ))}

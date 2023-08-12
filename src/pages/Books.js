@@ -6,19 +6,19 @@ import { Carousel } from "react-bootstrap";
 function Books() {
     const [bookdata, setBookdata] = useState([]);
 
-    const [searchtext, setSearchtext] = useState("");
+    // const [searchtext, setSearchtext] = useState("");
 
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3001/api/data?s=books`)
+            .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=books`)
             .then((response) => {
                 setBookdata(response.data);
             })
-    }, [searchtext])
-    function changedvalue(e) {
-        setSearchtext(e.target.value);
-    }
+    }, [])
+    // function changedvalue(e) {
+    //     setSearchtext(e.target.value);
+    // }
     if (!bookdata) {
         return <h1>Loading....</h1>
     }
@@ -49,7 +49,7 @@ function Books() {
 
 
             <div className="App2">
-                <div>
+                {/* <div>
                     <h2>Filter</h2>
                     <select name="Gender" id="Gender" value={searchtext} onChange={changedvalue}>
                         <option value=""> All</option>
@@ -60,12 +60,14 @@ function Books() {
 
 
 
-                </div>
+                </div> */}
                 {bookdata.map((books) => (
                     <div className="card" key={books.product_id}>
                       <Link to={`/Details/${books.product_id}`}> <div className="image">  <img src={books.product_images} alt={books.product_name}  /></div></Link>
                         <h3 style={{ textAlign: "left" }}>{books.product_name}</h3>
                         <h3 style={{ textAlign: "left" }}>₹{books.price}</h3>
+                        <Link to={`/Details/${books.product_id}`}><button type="submit">details</button></Link>
+
                     </div>
                 ))}
 

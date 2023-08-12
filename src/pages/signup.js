@@ -17,7 +17,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/register', user);
+      const response = await axios.post('https://lime-outrageous-codfish.cyclic.app/register', user);
       console.log('Successfully registered!', response.data);
 
       // Save userObj and auth token to localStorage
@@ -34,7 +34,7 @@ function Signup() {
 
   return (
     <div className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <div>
           {/* <label>UserName:</label> */}
@@ -44,6 +44,7 @@ function Signup() {
             value={user.username}
             placeholder="Username"
             onChange={handleOnChange}
+            required
           />
         </div>
         <div>
@@ -54,12 +55,11 @@ function Signup() {
             value={user.password}
             placeholder="Enter password"
             onChange={handleOnChange}
+            required
           />
         </div>
         <div>
-          <button type="submit" onClick={handleSubmit}>
-            Sign Up
-          </button>
+          <button type="submit"> Sign Up </button>
         </div>
         <p>
           Already registered? <Link to="/signin">Sign In</Link>

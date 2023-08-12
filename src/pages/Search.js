@@ -9,7 +9,7 @@ function Search() {
 
     useEffect(()=>{
         axios
-        .get(`http://localhost:3001/api/data?s=${searchtext}`)
+        .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=${searchtext}`)
         .then((response)=>{
             setSearchdata(response.data);
         })

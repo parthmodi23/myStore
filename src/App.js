@@ -13,12 +13,14 @@ import Footer from './pages/footer';
 import Signup from './pages/signup';
 import SignIn from './pages/signin';
 import Nav2 from './pages/nav2';
+import Cartpage from './pages/cartpage';
+// import Buy from './pages/buy';
 function App() {
   return (
     <div className="App">
       <Router>
 
-        <Nav />
+        <Nav/>
         <Nav2/>
         <hr></hr>
         <Routes>
@@ -26,12 +28,17 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Search/:searchtext" element={<Search />} />
           <Route path="/Details/:productid" element={<Details/>}/>
+
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/mobiles" element={<Mobile />} />
+          <Route path="/cartpage" element={<Cartpage />} />
           <Route path="/clothes" element={<Clothes />} />
           <Route path="/Books" element={<Books />} />
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/signin' element={<SignIn/>}/>
+          {/* <Route path='/buy' element={<Buy/>}/> */}
+
+
           <Route path="/*" element={<h1>error</h1>} />
         </Routes>
         
