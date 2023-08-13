@@ -63,30 +63,30 @@ function Details() {
             </div>
 
             <div className="dproductdetails">
-                <h3>{details.product_name}</h3><br />
+                <h2 className="productname">{details.product_name}</h2><br />
                 <h3 style={{ textAlign: "left" }}>${details.price}</h3><br />
-                <h3 style={{ textAlign: "left" }}>{details.description}</h3>
+                <h4 style={{ textAlign: "left" }}>{details.description}</h4>
                 <div className="sizecolor"> 
                 <div className="size"><span>Size:</span><select id="size">
                     <option value="">Choose an Option</option>
-                    <option value="">Size S</option>
-                    <option value="">Size M</option>
-                    <option value="">Size XL</option>
-                    <option value="">Size XXL</option>
+                    <option value="">10</option>
+                    <option value="">9</option>
+                    <option value="">8</option>
+                    <option value="">7</option>
                     </select></div>
                 <span>Color:</span><select id="size">
                         <option value="">Choose an Option</option>
-                        <option value="">Red</option>
-                        <option value="">Blue</option>
+                        {/* <option value="">Red</option>
+                        <option value="">Blue</option> */}
                         <option value="">Black</option>
                         <option value="">White</option>
                     </select>
                     </div>
             
             <div className="cartbuy">
-               <div className="cart"> <button type="submit" onClick={less}>-</button>
+               {/* <div className="cart"> <button type="submit" onClick={less}>-</button>
                 <span>{additem}</span>
-                <button type="submit" onClick={add}>+</button></div>
+                <button type="submit" onClick={add}>+</button></div> */}
                <div className="buy"> 
               <div className="cartbutton"> <button  type="submit" onClick={addToCart}>Add to cart🛒</button></div>
               <div className="buybutton"><button  type="submit" onClick={handlebuy}>Buy Now</button></div>

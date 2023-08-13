@@ -5,3 +5,13 @@
 .footer{
     margin-top: 30px;
 }
+.footer-payment{
+    display: flex;
+    justify-content: center;
+
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+
+}

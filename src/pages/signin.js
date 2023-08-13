@@ -19,7 +19,7 @@ function SignIn() {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://lime-outrageous-codfish.cyclic.app/login', credentials);
+      const response = await axios.post('http://lime-outrageous-codfish.cyclic.app/login', credentials);
 
       if (response && response.data) {
         // Successful sign-in

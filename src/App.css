@@ -1,5 +1,4 @@
 
-
 .App {
   text-align: center;
 }
@@ -215,10 +214,22 @@ h1{
 .dproductdetails{
   justify-content: space-evenly;
 }
+.dproductdetails h4{
+  width: 1000px;
+}
+.productname{
+  font-weight: 700px;
+  border: #007bff;
+}
+.detailmain h2{
+  font-weight: 700px;
+
+}
 .dproductimage img{
   height: 500px;
   width: 500px;
   padding: 20px;
+  box-shadow: 0 0 15px .5px #888888;
 }
 .dproductimage img:hover{
   scale: 1.1;
