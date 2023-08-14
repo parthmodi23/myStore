@@ -77,7 +77,7 @@ function Home() {
             <div className="offermain">
                 <h2 className="offer">Our Latest Mobile Collection</h2>
                 <Mobilenew />
-                <h2 className="show"><Link to="/mobile">Explore more</Link></h2>
+                <h2 className="show"><Link to="/mobiles">Explore more</Link></h2>
             </div>
             <hr/>
 
