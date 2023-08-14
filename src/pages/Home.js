@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 import '../App.css';
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
-
+import Shoes from "./shoes";
+import Shoesnew from "./shoesnew";
+import Clothesnew from "./clothesnew";
+import Mobilenew from "./mobilenew";
+import Booksnew from "./booknew";
 function Home() {
     const [shoesdata,setShoesdata]=useState([]);
 
@@ -53,10 +57,15 @@ function Home() {
           </Link>
         </Carousel.Item>
       ))}
-    </Carousel>
+      
+   </Carousel>
+   <Shoesnew /> 
+   <Clothesnew/>
+   <Mobilenew/>
+   <Booksnew/>
   
         
-        <div className="App2">
+        {/* <div className="App2">
         {shoesdata.map((shoes)=>(
             <div className="card" key={shoes.product_id}>
              <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
@@ -67,7 +76,7 @@ function Home() {
             </div>
         ))}
 
-        </div>
+        </div> */}
         
         </>
     );

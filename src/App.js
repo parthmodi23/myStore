@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Nav from './pages/nav';
 import Home from './pages/Home';
 import Search from './pages/Search';
-import Details from './pages/Details';
 import Clothes from './pages/clothes';
 import Books from './pages/Books';
 import Footer from './pages/footer';
@@ -14,6 +13,11 @@ import Signup from './pages/signup';
 import SignIn from './pages/signin';
 import Nav2 from './pages/nav2';
 import Cartpage from './pages/cartpage';
+import Shoesdetails from './pages/shoesdetail';
+import Clothesdetails from './pages/clothesdetails';
+import Mobiledetails from './pages/mobiledetails';
+import Bookdetails from './pages/bookdetails';
+// import Shoesdetails from './pages/shoesDetails';
 // import Buy from './pages/buy';
 function App() {
   return (
@@ -27,7 +31,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Search/:searchtext" element={<Search />} />
-          <Route path="/Details/:productid" element={<Details/>}/>
+          <Route path="/shoesdetail/:productid" element={<Shoesdetails/>}/>
+          <Route path="/clothesdetails/:productid" element={<Clothesdetails/>}/>
+          <Route path="/Mobiledetails/:productid" element={<Mobiledetails/>}/>
+          <Route path="/Bookdetails/:productid" element={<Bookdetails/>}/>
+
 
           <Route path="/shoes" element={<Shoes />} />
           <Route path="/mobiles" element={<Mobile />} />

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-function Details() {
+function Clothesdetails() {
   const { productid } = useParams();
   const [details, setDetails] = useState([]);
   const [selectedSize, setSelectedSize] = useState("");
@@ -64,20 +64,21 @@ function Details() {
 
             <div className="dproductdetails">
                 <h2 className="productname">{details.product_name}</h2><br />
-                <h3 style={{ textAlign: "left" }}>${details.price}</h3><br />
-                <h4 style={{ textAlign: "left" }}>{details.description}</h4>
+                <h3 style={{ textAlign: "left" }}><span><b>Final Price   :-   </b> </span>${details.price}</h3><br />
+                <h4 style={{ textAlign: "left" }}><span><b>About this item  :-   </b> </span><br/><br/>{details.description}</h4>
                 <div className="sizecolor"> 
                 <div className="size"><span>Size:</span><select id="size">
                     <option value="">Choose an Option</option>
-                    <option value="">10</option>
-                    <option value="">9</option>
-                    <option value="">8</option>
-                    <option value="">7</option>
+                    <option value="">XS</option>
+                    <option value="">S</option>
+                    <option value="">M</option>
+                    <option value="">L</option>
+                    <option value="">XL</option>
                     </select></div>
                 <span>Color:</span><select id="size">
                         <option value="">Choose an Option</option>
-                        {/* <option value="">Red</option>
-                        <option value="">Blue</option> */}
+                        <option value="">Red</option>
+                        <option value="">Blue</option>
                         <option value="">Black</option>
                         <option value="">White</option>
                     </select>
@@ -100,4 +101,4 @@ function Details() {
         </div></div>
   );}
 
-export default Details;
+export default Clothesdetails;

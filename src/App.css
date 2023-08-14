@@ -226,8 +226,8 @@ h1{
 
 }
 .dproductimage img{
-  height: 500px;
-  width: 500px;
+  height: 400px;
+  width: 400px;
   padding: 20px;
   box-shadow: 0 0 15px .5px #888888;
 }
@@ -241,10 +241,10 @@ h1{
 }
 .sizecolor select{
   height: 50px;
-  width: 300px;
+  width: 250px;
 }
 .sizecolor span{
-  padding-right: 40px;
+  padding-right: 20px;
 }
 .size{
   margin-bottom: 20px;
