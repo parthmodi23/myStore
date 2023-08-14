@@ -23,7 +23,7 @@ function Search() {
         <div className="App2">
         {searchdata.map((searchvalue)=>(
             <div className="card" key={searchvalue.product_id}>
-             <div className="image">  <Link to={`/Details/${searchvalue.product_id}`}> <img src={searchvalue.product_images} alt={searchvalue.product_name} />  </Link></div>
+             <div className="image">  <Link to={`/clothesdetails/${searchvalue.product_id}`}> <img src={searchvalue.product_images} alt={searchvalue.product_name} />  </Link></div>
                 <h3 style={{textAlign:"left"}}>{searchvalue.product_name}</h3><br/>
                 <h3 style={{textAlign:"left"}}>${searchvalue.price}</h3>
               
