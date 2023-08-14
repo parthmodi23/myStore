@@ -1,23 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import '../App.css';
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
-import Shoes from "./shoes";
 import Shoesnew from "./shoesnew";
 import Clothesnew from "./clothesnew";
 import Mobilenew from "./mobilenew";
 import Booksnew from "./booknew";
-function Home() {
-    const [shoesdata,setShoesdata]=useState([]);
+import './Home.css';
 
-    useEffect(()=>{
+function Home() {
+    const [shoesdata, setShoesdata] = useState([]);
+
+    useEffect(() => {
         axios
-        .get("https://lime-outrageous-codfish.cyclic.app/api/data")
-        .then((response)=>{
-            setShoesdata(response.data);
-        })
-    },[])
+            .get("https://lime-outrageous-codfish.cyclic.app/api/data")
+            .then((response) => {
+                setShoesdata(response.data);
+            })
+    }, [])
+
     const offer = [
       {
         "id":20000,
@@ -36,50 +37,57 @@ function Home() {
       "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.jpg"
     },
     ];
-    
-  
-    if(!shoesdata){
+
+    if (!shoesdata) {
         return <h1>Loading....</h1>
     }
 
-    return(
+    return (
         <>
-         <Carousel
-      interval={1500}
-      pause="hover"
-      wrap // This will make the carousel repeat automatically
-      onSlide={(slideIndex) => console.log(`Active Slide: ${slideIndex}`)}
-    >
-      {offer.map((items) => (
-        <Carousel.Item key={items.id}>
-          <Link to="/clothes">
-            <img className="d-block w-100" src={items.offerimage} alt={`Slide ${items.id}`} />
-          </Link>
-        </Carousel.Item>
-      ))}
-      
-   </Carousel>
-   <Shoesnew /> 
-   <Clothesnew/>
-   <Mobilenew/>
-   <Booksnew/>
-  
-        
-        {/* <div className="App2">
-        {shoesdata.map((shoes)=>(
-            <div className="card" key={shoes.product_id}>
-             <div className="image">  <Link to={`/Details/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
-                <h3 style={{textAlign:"left"}}>{shoes.product_name}<br/>
-                ${shoes.price}</h3>
-                <Link to={`/Details/${shoes.product_id}`}><button type="submit">details</button></Link>
-              
-            </div>
-        ))}
+            <Carousel
+                interval={1500}
+                pause="hover"
+                wrap
+                onSlide={(slideIndex) => console.log(`Active Slide: ${slideIndex}`)}
+            >
+                {offer.map((items) => (
+                    <Carousel.Item key={items.id}>
+                        <Link to="/clothes">
+                            <img className="d-block w-100" src={items.offerimage} alt={`Slide ${items.id}`} />
+                        </Link>
+                    </Carousel.Item>
+                ))}
+            </Carousel>
 
-        </div> */}
-        
+            <div className="offermain">
+                <h2 className="offer">Our Latest Shoes Collection</h2>
+                <Shoesnew />
+                <h2 className="show"><Link to="/shoes">Explore more</Link></h2>
+            </div>
+            <hr/>
+
+            <div className="offermain">
+                <h2 className="offer">Our Latest Clothe Collection</h2>
+                <Clothesnew />
+                <h2 className="show"><Link to="/clothes">Explore more</Link></h2>
+            </div>
+            <hr/>
+
+
+            <div className="offermain">
+                <h2 className="offer">Our Latest Mobile Collection</h2>
+                <Mobilenew />
+                <h2 className="show"><Link to="/mobile">Explore more</Link></h2>
+            </div>
+            <hr/>
+
+            <div className="offermain">
+                <h2 className="offer">Our Latest Book Collection</h2>
+                <Booksnew />
+                <h2 className="show"><Link to="/Books">Explore more</Link></h2>
+            </div>
         </>
     );
-    
 }
+
 export default Home;

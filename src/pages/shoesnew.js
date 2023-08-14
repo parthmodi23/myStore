@@ -28,7 +28,7 @@ function Shoesnew() {
 
      
       <div className="App2">
-        {shoesdata.map((shoes) => (
+        {shoesdata.slice(0, 4).map((shoes) => (
           <div className="card" key={shoes.product_id}>
             <div className="image">  <Link to={`/shoesdetail/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
             <h3 style={{ textAlign: "left" }}>{shoes.product_name}</h3>

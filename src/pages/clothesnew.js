@@ -27,7 +27,7 @@ function Clothesnew() {
   return (
     
           <div className="App2">
-            {clothesdata.map((clothes) => (
+            {clothesdata.slice(0, 4).map((clothes) => (
             <div className="card" key={clothes.product_id}>
             <div className="image">  <Link to={`/Clothesdetails/${clothes.product_id}`}> <img src={clothes.product_images} alt={clothes.product_name} />  </Link></div>
             <h3 style={{ textAlign: "left" }}>{clothes.product_name}</h3>

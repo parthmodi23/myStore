@@ -20,7 +20,7 @@ function Booksnew() {
     return (
         <>
      <div className="App2">
-               {bookdata.map((books) => (
+               {bookdata.slice(0,4).map((books) => (
                     <div className="card" key={books.product_id}>
                         <Link to={`/Bookdetails/${books.product_id}`}> <div className="image">  <img src={books.product_images} alt={books.product_name} /></div></Link>
                         <h3 style={{ textAlign: "left" }}>{books.product_name}</h3>
