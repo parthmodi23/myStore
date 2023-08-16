@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import '../App.css';
+import '../../App.css';
 import './shoes.css'
 import { Link } from "react-router-dom";
 // import { Carousel } from "react-bootstrap";
-function Shoes() {
+function Shoesnew() {
   const [shoesdata, setShoesdata] = useState([]);
   const [searchtext, setSearchtext] = useState("");
 
@@ -25,26 +25,10 @@ function Shoes() {
 
 
   return (
-    <div className="mainshoes">
 
-      <div className="filter">
-        <h2>Filter</h2>
-        <p>Select Brand</p>
-        <select
-          name="company"
-          id="company"
-          value={searchtext}
-          onChange={changedvalue}
-        >
-          <option value="">All</option>
-          <option value="Nike">Nike</option>
-          <option value="Adidas">Adidas</option>
-          <option value="Puma">Puma</option>
-          <option value="Converse">Converse</option>
-        </select>
-      </div>
+     
       <div className="App2">
-        {shoesdata.map((shoes) => (
+        {shoesdata.slice(0, 4).map((shoes) => (
           <div className="card" key={shoes.product_id}>
             <div className="image">  <Link to={`/shoesdetail/${shoes.product_id}`}> <img src={shoes.product_images} alt={shoes.product_name} />  </Link></div>
             <h3 style={{ textAlign: "left" }}>{shoes.product_name}</h3>
@@ -56,8 +40,7 @@ function Shoes() {
         ))}
 
       </div>
-    </div>
   );
 
 }
-export default Shoes;
+export default Shoesnew;

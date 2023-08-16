@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaCcVisa, FaCcMastercard, FaPaypal } from 'react-icons/fa';
 import "./footer.css";
-import '../App.css';
 
 const Footer = () => {
   return (

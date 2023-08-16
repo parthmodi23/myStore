@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import '../App.css';
+import '../../App.css';
 import { Link,useNavigate} from "react-router-dom";
-import logo from "../logo.png";
+import logo from "../../logo.png";
 function Nav() {  
 
   const [searchtext, setSearchinput] = useState("");

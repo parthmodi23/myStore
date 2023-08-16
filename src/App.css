@@ -249,10 +249,7 @@ h1{
 .size{
   margin-bottom: 20px;
 }
-/* .cart button{
-  width: 50px;
-  height: 50px;
-} */
+
 .cart span{
   font-size: 38px;
  text-align: center;
@@ -326,74 +323,21 @@ h1{
 }
 /* CSS */
 
-.footer {
-  background-color: #f8f8f8;
-  padding: 40px 0;
-}
 
-.footer h4 {
-  font-size: 10px;
-  font-weight: 600;
-  color: #333;
-}
 
-.footer p {
-  color: #777;
-  margin-bottom: 10px;
-}
 
-.social-icons {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
 
-.social-icons li {
-  margin-right: 15px;
-  font-size: 20px;
-  color: #333;
-}
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.footer-links a:hover {
-  color: #007bff;
-}
-
-.footer-payment {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0;
-}
-
-.footer-payment li {
-  margin-right: 10px;
-}
-
-.footer-hr {
+/* .footer-hr {
   border: none;
   border-top: 1px solid #ddd;
   margin: 20px 0;
-}
+} */
 
-.footer-copyright {
+/* .footer-copyright {
   color: #777;
   margin-top: 20px;
-}
+} */
 .logincomponent button{
   margin: 10px;
   justify-content: space-evenly;

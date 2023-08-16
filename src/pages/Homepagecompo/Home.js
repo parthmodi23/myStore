@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
-import Shoesnew from "./shoesnew";
-import Clothesnew from "./clothesnew";
-import Mobilenew from "./mobilenew";
-import Booksnew from "./booknew";
+import Shoesnew from "../Shoescompo/shoesnew";
+import Clothesnew from "../clothescompo/clothesnew";
+import Mobilenew from "../Mobilecompo/mobilenew";
+import Booksnew from "../Bookscompo/booknew";
 import './Home.css';
 
 function Home() {

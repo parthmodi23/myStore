@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import '../App.css';
+import '../../App.css';
 import './clothes.css';
 import { Link } from "react-router-dom";
 function Clothesnew() {
@@ -16,9 +16,9 @@ function Clothesnew() {
   }, [searchtext]);
 
 
-  function changedvalue(e) {
-    setSearchtext(e.target.value);
-  }
+  // function changedvalue(e) {
+  //   setSearchtext(e.target.value);
+  // }
 
   if (!clothesdata) {
     return <h1>Loading....</h1>;
