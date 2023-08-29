@@ -28,7 +28,8 @@ Website Features:
 
 => Deployment server:-
 
-1.cyclic.sh - for API and login and signup 2.vercel - for frontend
+1.cyclic.sh - for API and login and signup
+2.vercel - for frontend
 
 => Frontend:
 
@@ -38,10 +39,14 @@ react-icons
 CSS
 => Back-end:
 
-1.Node.js with Express.js for server development 2.MongoDB for database storage 3.JWT (JSON Web Tokens) for user authentication
+1.Node.js with Express.js for server development
+2.MongoDB for database storage 
+3.JWT (JSON Web Tokens) for user authentication
 
 ===> Libraries which are used in MusicMingle <===
 
-Axios
-mongoose
-nodemon 4. express 5. cors
+1. Axios
+2. mongoose
+3. nodemon 
+4. express 
+5. cors
