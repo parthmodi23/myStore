@@ -34,7 +34,7 @@ function Clothesdetails() {
         // item.selectedSize === selectedSize
     );
     if (existingCartItem) {
-      alert("This product with the selected size is already in the cart.");
+      alert("This product is already in the cart.");
       return;
     }
    

@@ -42,7 +42,7 @@ function Cartpage() {
               />
               <div className="cart-item-details">
                 <h3 className="cart-item-title">{item.product_name}</h3>
-                <p className="cart-item-price">Price: ₹{item.price}</p>
+                <p className="cart-item-price">Price: ${item.price}</p>
                 <button
                   className="remove-button"
                   onClick={() => removeFromCart(index)}
@@ -54,7 +54,7 @@ function Cartpage() {
           ))}
           <div className="total-price">
             <span className="totalitems">Total cart Items:- {cartItems.length}</span>
-            <span className="total-price-label">Total Price: ₹{getTotalPrice()}</span>
+            <span className="total-price-label">Total Price: ${getTotalPrice()}</span>
             <button type="submit" onClick={handlebuy} >Buy Now</button>
           </div>
         </div>
