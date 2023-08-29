@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+**Websitevideo link:-https://github.com/parthmodi23/myStore/assets/110086990/d4bb30d3-de5e-4996-bd92-ea7b412e7836**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Website Link:-https://my-store-tau-eight.vercel.app**
 
-## Available Scripts
+**API link:-https://lime-outrageous-codfish.cyclic.app/api/data**
 
-In the project directory, you can run:
+Website Features:
 
-### `npm start`
+=> Main Page: The user can see all the products like mobiles, shoes, clothes, etc on the main home page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+=> Navbar: Navbar contains categories such as Homepage, Mobilepage, Bookspage, Shoes, clothes... Also, It contains a search bar and Logout & Login & signup buttons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+=> Searchbar: User can search specific items.
 
-### `npm test`
+=> Add To Cart: After clicking on add to cart for a particular product it will be stored and displayed when clicked on the cart icon.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+=> Total Price: Total amount will be displayed with cart items.
 
-### `npm run build`
+=> Logout: Logout from the website.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+=> User can get data of a specific category by clicking on that category.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+=> Login Page: Login to the website to buy Mobiles, clothes, books, shoes and etc.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+=> Registration Page: Register yourself on the website.
 
-### `npm run eject`
+<======>Technologies used to make the website <=====>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+=> Deployment server:-
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.cyclic.sh - for API and login and signup 2.vercel - for frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+=> Frontend:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Reactjs
+bootstrap
+react-icons
+CSS
+=> Back-end:
 
-## Learn More
+1.Node.js with Express.js for server development 2.MongoDB for database storage 3.JWT (JSON Web Tokens) for user authentication
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+===> Libraries which are used in MusicMingle <===
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Axios
+mongoose
+nodemon 4. express 5. cors
