@@ -2,7 +2,7 @@
 
 **Website Link:-https://my-store-tau-eight.vercel.app**
 
-**API link:-https://lime-outrageous-codfish.cyclic.app/api/data**
+**API link:-https://mystore-n5bm.onrender.com/api/data**
 
 Website Features:
 
