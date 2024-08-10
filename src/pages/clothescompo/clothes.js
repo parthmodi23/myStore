@@ -10,7 +10,7 @@ function Clothes() {
 
   useEffect(() => {
     axios
-      .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=clothes&g=${searchtext}`)
+      .get(`https://mystore-n5bm.onrender.com/api/data?s=clothes&g=${searchtext}`)
       .then((response) => {
         setClothesdata(response.data);
       });

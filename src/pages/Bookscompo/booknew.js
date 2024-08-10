@@ -7,7 +7,7 @@ function Booksnew() {
 
     useEffect(() => {
         axios
-            .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=books`)
+            .get(`https://mystore-n5bm.onrender.com/api/data?s=books`)
             .then((response) => {
                 setBookdata(response.data);
             })

@@ -11,7 +11,7 @@ function Mobiledetails() {
   // const userAuthenticated = !!localStorage.getItem('token');
   useEffect(() => {
     axios
-      .get(`https://lime-outrageous-codfish.cyclic.app/api/data?id=${productid}`)
+      .get(`https://mystore-n5bm.onrender.com/api/data?id=${productid}`)
       .then((response) => {
         setDetails(response.data);
       });

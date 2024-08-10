@@ -17,7 +17,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://lime-outrageous-codfish.cyclic.app/register', user);
+      const response = await axios.post('https://mystore-n5bm.onrender.com/register', user);
       console.log('Successfully registered!', response.data);
 
       // Save userObj and auth token to localStorage

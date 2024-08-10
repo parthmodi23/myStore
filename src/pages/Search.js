@@ -9,7 +9,7 @@ function Search() {
 
     useEffect(()=>{
         axios
-        .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=${searchtext}`)
+        .get(`https://mystore-n5bm.onrender.com/api/data?s=${searchtext}`)
         .then((response)=>{
             setSearchdata(response.data);
         })

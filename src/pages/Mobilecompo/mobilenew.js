@@ -7,7 +7,7 @@ function Mobilenew() {
 
     useEffect(()=>{
         axios
-        .get("https://lime-outrageous-codfish.cyclic.app/api/data?s=mobile")
+        .get("https://mystore-n5bm.onrender.com/api/data?s=mobile")
         .then((response)=>{
             setMobiledata(response.data);
         })

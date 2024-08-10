@@ -11,7 +11,7 @@ function Shoesnew() {
 
   useEffect(() => {
     axios
-      .get(`https://lime-outrageous-codfish.cyclic.app/api/data?s=shoes&c=${searchtext}`)
+      .get(`https://mystore-n5bm.onrender.com/api/data?s=shoes&c=${searchtext}`)
       .then((response) => {
         setShoesdata(response.data);
       })
