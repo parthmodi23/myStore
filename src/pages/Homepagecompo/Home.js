@@ -13,7 +13,7 @@ function Home() {
 
     useEffect(() => {
         axios
-            .get("https://lime-outrageous-codfish.cyclic.app/api/data")
+            .get("https://mystore-n5bm.onrender.com/api/data")
             .then((response) => {
                 setShoesdata(response.data);
             })
