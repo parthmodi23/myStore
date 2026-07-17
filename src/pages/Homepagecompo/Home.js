@@ -1,93 +1,103 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Carousel } from "react-bootstrap";
+import { Carousel, Spinner, Alert } from "react-bootstrap";
 import Shoesnew from "../Shoescompo/shoesnew";
 import Clothesnew from "../clothescompo/clothesnew";
 import Mobilenew from "../Mobilecompo/mobilenew";
 import Booksnew from "../Bookscompo/booknew";
 import './Home.css';
 
+const OFFERS = [
+  { id: 20000, offerimage: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/0174e4d7-448c-4746-8572-69461ad5be101659020268081-Tops---Tees_Desk.jpg" },
+  { id: 20001, offerimage: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/9be788ff-39a4-4214-99d0-fc97505aae5a1658752545685-USPA_Desk_Banner.jpg" },
+  { id: 20002, offerimage: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/7/30/e8aea330-10cd-4778-91ab-da9678161ec11690739860849-PB-Banner_Wishlist-Now.jpg" },
+  { id: 20003, offerimage: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/b656a7f4-4688-4997-bb7c-54b78793981e1658752386588-Western-Wear_Desk.jpg" },
+  { id: 20004, offerimage: "https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.jpg" },
+];
+
 function Home() {
-    const [shoesdata, setShoesdata] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    useEffect(() => {
-        axios
-            .get("https://mystore-n5bm.onrender.com/api/data")
-            .then((response) => {
-                setShoesdata(response.data);
-            })
-    }, [])
+  useEffect(() => {
+    const controller = new AbortController();
 
-    const offer = [
-      {
-        "id":20000,
-      "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/0174e4d7-448c-4746-8572-69461ad5be101659020268081-Tops---Tees_Desk.jpg"
-    },
-    {"id":20001,
-      "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/9be788ff-39a4-4214-99d0-fc97505aae5a1658752545685-USPA_Desk_Banner.jpg "
-    },
-    {"id":20002,
-      "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2023/7/30/e8aea330-10cd-4778-91ab-da9678161ec11690739860849-PB-Banner_Wishlist-Now.jpg"
-    },
-    {"id":20003,
-      "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/b656a7f4-4688-4997-bb7c-54b78793981e1658752386588-Western-Wear_Desk.jpg"
-    },
-    {"id":20004,
-      "offerimage":"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.jpg"
-    },
-    ];
+    setLoading(true);
+    axios
+      .get("https://mystore-n5bm.onrender.com/api/data", { signal: controller.signal })
+      .then((response) => {
+        setProducts(response.data);
+        setError(null);
+      })
+      .catch((err) => {
+        if (axios.isCancel(err) || err.name === "CanceledError") return;
+        console.error("Failed to fetch home data:", err);
+        setError("Couldn't load latest products. Please try again later.");
+      })
+      .finally(() => setLoading(false));
 
-    if (!shoesdata) {
-        return <h1>Loading....</h1>
-    }
+    return () => controller.abort();
+  }, []);
 
+  if (loading) {
     return (
-        <>
-            <Carousel
-                interval={1500}
-                pause="hover"
-                wrap
-                onSlide={(slideIndex) => console.log(`Active Slide: ${slideIndex}`)}
-            >
-                {offer.map((items) => (
-                    <Carousel.Item key={items.id}>
-                        <Link to="/clothes">
-                            <img className="d-block w-100" src={items.offerimage} alt={`Slide ${items.id}`} />
-                        </Link>
-                    </Carousel.Item>
-                ))}
-            </Carousel>
-
-            <div className="offermain">
-                <h2 className="offer">Our Latest Shoes Collection</h2>
-                <Shoesnew />
-                <h2 className="show"><Link to="/shoes">Explore more</Link></h2>
-            </div>
-            <hr/>
-
-            <div className="offermain">
-                <h2 className="offer">Our Latest Clothe Collection</h2>
-                <Clothesnew />
-                <h2 className="show"><Link to="/clothes">Explore more</Link></h2>
-            </div>
-            <hr/>
-
-
-            <div className="offermain">
-                <h2 className="offer">Our Latest Mobile Collection</h2>
-                <Mobilenew />
-                <h2 className="show"><Link to="/mobiles">Explore more</Link></h2>
-            </div>
-            <hr/>
-
-            <div className="offermain">
-                <h2 className="offer">Our Latest Book Collection</h2>
-                <Booksnew />
-                <h2 className="show"><Link to="/Books">Explore more</Link></h2>
-            </div>
-        </>
+      <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "300px" }}>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
     );
+  }
+
+  return (
+    <>
+      {error && <Alert variant="warning" className="text-center m-3">{error}</Alert>}
+
+      <Carousel interval={3000} pause="hover" wrap>
+        {OFFERS.map((item, index) => (
+          <Carousel.Item key={item.id}>
+            <Link to="/clothes">
+              <img
+                className="d-block w-100"
+                src={item.offerimage}
+                alt={`Offer ${item.id}`}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </Link>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <div className="offermain">
+        <h2 className="offer">Our Latest Shoes Collection</h2>
+        <Shoesnew data={products} />
+        <h2 className="show"><Link to="/shoes">Explore more</Link></h2>
+      </div>
+      <hr />
+
+      <div className="offermain">
+        <h2 className="offer">Our Latest Clothe Collection</h2>
+        <Clothesnew data={products} />
+        <h2 className="show"><Link to="/clothes">Explore more</Link></h2>
+      </div>
+      <hr />
+
+      <div className="offermain">
+        <h2 className="offer">Our Latest Mobile Collection</h2>
+        <Mobilenew data={products} />
+        <h2 className="show"><Link to="/mobiles">Explore more</Link></h2>
+      </div>
+      <hr />
+
+      <div className="offermain">
+        <h2 className="offer">Our Latest Book Collection</h2>
+        <Booksnew data={products} />
+        <h2 className="show"><Link to="/Books">Explore more</Link></h2>
+      </div>
+    </>
+  );
 }
 
 export default Home;
